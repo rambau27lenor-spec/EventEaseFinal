@@ -1,0 +1,27 @@
+﻿@model EventEaseFinal.Models.Venue
+
+<h1>Create Venue</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Create">
+    <label asp-for="VenueName"></label>
+    <input asp-for="VenueName" class="form-control" />
+
+    <label asp-for="Location"></label>
+    <input asp-for="Location" class="form-control" />
+
+    <label asp-for="Capacity"></label>
+    <input asp-for="Capacity" class="form-control" />
+
+    <label asp-for="ImageUrl"></label>
+    <input asp-for="ImageUrl" class="form-control" />
+
+    <br />
+    <input asp-for="IsAvailable" /> Venue Available
+
+    <br /><br />
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<a asp-action="Index">Back to List</a>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EventEaseFinal.Models.Booking>
+
+<h1>Bookings</h1>
+
+<form asp-action="Index" method="get" class="mb-3">
+    <input type="text" name="searchString" value="@ViewBag.SearchString" placeholder="Search" class="form-control" style="width:250px; display:inline-block;" />
+
+    <select name="eventTypeId" class="form-control" asp-items="ViewBag.EventTypeId" style="width:200px; display:inline-block;">
+        <option value="">All Event Types</option>
+    </select>
+
+    <input type="date" name="startDate" value="@ViewBag.StartDate" class="form-control" style="width:180px; display:inline-block;" />
+
+    <input type="date" name="endDate" value="@ViewBag.EndDate" class="form-control" style="width:180px; display:inline-block;" />
+
+    <select name="isAvailable" class="form-control" style="width:180px; display:inline-block;">
+        <option value="">All Venues</option>
+        <option value="true">Available</option>
+        <option value="false">Unavailable</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">Filter</button>
+    <a asp-action="Index" class="btn btn-secondary">Clear</a>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Booking</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Booking ID</th>
+        <th>Event</th>
+        <th>Event Type</th>
+        <th>Venue</th>
+        <th>Venue Availability</th>
+        <th>Booking Date</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BookingId</td>
+            <td>@item.Event.EventName</td>
+            <td>@item.Event.EventType?.Name</td>
+            <td>@item.Venue.VenueName</td>
+            <td>@(item.Venue.IsAvailable ? "Available" : "Unavailable")</td>
+            <td>@item.BookingDate.ToShortDateString()</td>
+        </tr>
+    }
+</table>

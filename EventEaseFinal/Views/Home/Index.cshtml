@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>EventEase Dashboard</h1>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h3>Total Venues</h3>
+                <h1>@ViewBag.TotalVenues</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h3>Total Events</h3>
+                <h1>@ViewBag.TotalEvents</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h3>Total Bookings</h3>
+                <h1>@ViewBag.TotalBookings</h1>
+            </div>
+        </div>
+    </div>
+
+</div>

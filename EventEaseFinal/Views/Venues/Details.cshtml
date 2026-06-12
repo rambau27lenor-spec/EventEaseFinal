@@ -1,0 +1,14 @@
+﻿@model EventEaseFinal.Models.Venue
+
+<h1>Venue Details</h1>
+
+<p><strong>Name:</strong> @Model.VenueName</p>
+<p><strong>Location:</strong> @Model.Location</p>
+<p><strong>Capacity:</strong> @Model.Capacity</p>
+<p><strong>Available:</strong> @(Model.IsAvailable ? "Available" : "Unavailable")</p>
+<img src="@Model.ImageUrl" width="200" />
+
+<br />
+<br />
+<a asp-action="Edit" asp-route-id="@Model.VenueId">Edit</a> |
+<a asp-action="Index">Back to List</a>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EventEaseFinal.Models.Venue>
+
+<h1>Venues</h1>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<p><a asp-action="Create" class="btn btn-primary">Create New Venue</a></p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Capacity</th>
+        <th>Available</th>
+        <th>Image</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.VenueName</td>
+            <td>@item.Location</td>
+            <td>@item.Capacity</td>
+            <td>@(item.IsAvailable ? "Available" : "Unavailable")</td>
+            <td><img src="@item.ImageUrl" width="100" /></td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VenueId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VenueId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VenueId">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

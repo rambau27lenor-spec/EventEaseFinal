@@ -1,0 +1,26 @@
+﻿@model EventEaseFinal.Models.Event
+
+<h1>Create Event</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Create">
+    <label asp-for="EventName"></label>
+    <input asp-for="EventName" class="form-control" />
+
+    <label asp-for="EventDate"></label>
+    <input asp-for="EventDate" type="date" class="form-control" />
+
+    <label asp-for="EventTypeId">Event Type</label>
+    <select asp-for="EventTypeId" class="form-control" asp-items="ViewBag.EventTypeId">
+        <option value="">Select Event Type</option>
+    </select>
+
+    <label asp-for="Description"></label>
+    <input asp-for="Description" class="form-control" />
+
+    <br />
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<a asp-action="Index">Back to List</a>
